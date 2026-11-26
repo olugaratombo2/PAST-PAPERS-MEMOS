@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCV Past Papers Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Student Resources</p>
+      <h1>NCV Past Papers Store</h1>
+      <p>Exam papers and memorandums from 2010 to 2026.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolbar" aria-label="Paper search">
+      <div>
+        <h2>Available Papers</h2>
+        <p id="paperCount">Loading papers...</p>
+      </div>
+
+      <input
+        type="search"
+        id="search"
+        placeholder="Search papers..."
+        aria-label="Search papers"
+      >
+    </section>
+
+    <section id="papers" class="papers-grid" aria-live="polite">
+      <p class="status">Loading papers...</p>
+    </section>
+
+    <section class="admin-panel">
+      <h2>Admin Login</h2>
+      <p>Only the administrator can upload past papers.</p>
+
+      <form id="adminLoginForm">
+        <label>
+          Admin password
+          <input type="password" id="adminPassword" required>
+        </label>
+
+        <button type="submit" class="primary-button">Login</button>
+        <p id="loginMessage" class="form-message error" role="status"></p>
+      </form>
+    </section>
+
+    <section class="admin-panel" id="uploadPanel" hidden>
+      <h2>Upload Past Paper</h2>
+      <p>Select the question paper and memorandum as PDF files.</p>
+
+      <form id="paperForm">
+        <div class="form-grid">
+          <label>
+            Paper title
+            <input
+              type="text"
+              id="title"
+              placeholder="Electronics L2"
+              required
+            >
+          </label>
+
+          <label>
+            Subject or code
+            <input
+              type="text"
+              id="subject"
+              placeholder="NC990"
+              required
+            >
+          </label>
+
+          <label>
+            Exam session
+            <select id="session" required>
+              <option value="">Select a session</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="June">June</option>
+              <option value="November">November</option>
+            </select>
+          </label>
+
+          <label>
+            Year
+            <input
+              type="number"
+              id="year"
+              min="2010"
+              max="2026"
+              placeholder="2023"
+              required
+            >
+          </label>
+
+          <label>
+            Question paper PDF
+            <input
+              type="file"
+              id="questionPaper"
+              accept="application/pdf,.pdf"
+            >
+          </label>
+
+          <label>
+            Memorandum PDF
+            <input
+              type="file"
+              id="memorandum"
+              accept="application/pdf,.pdf"
+            >
+          </label>
+        </div>
+
+        <button type="submit" class="primary-button" id="submitPaperButton">Upload Paper</button>
+        <button type="button" class="primary-button" id="cancelEditButton" hidden>Cancel edit</button>
+        <p id="formMessage" class="form-message" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 NCV Past Papers Store</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
